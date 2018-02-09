@@ -40,9 +40,9 @@ RSpec.describe Tikkie::Api::Requests::PaymentRequests do
 
     it 'filters data using from_date and to_date as parameters' do
       data = File.read("spec/fixtures/responses/payment_requests/list.json")
-      stub_request(:get, "https://api.abnamro.com/v1/tikkie/platforms/12345/users/67890/paymentrequests?fromDate=2017-12-31T23:00:00Z&limit=20&offset=0&toDate=2018-01-06T23:00:00Z").to_return(status: 200, body: data)
+      stub_request(:get, "https://api.abnamro.com/v1/tikkie/platforms/12345/users/67890/paymentrequests?fromDate=2018-01-01T00:00:00Z&limit=20&offset=0&toDate=2018-01-07T00:00:00Z").to_return(status: 200, body: data)
 
-      payment_requests = subject.list("12345", "67890", from_date: Time.new(2018, 1, 1), to_date: Time.new(2018, 1, 7))
+      payment_requests = subject.list("12345", "67890", from_date: Time.utc(2018, 1, 1), to_date: Time.utc(2018, 1, 7))
       expect(payment_requests).to be_a(Tikkie::Api::Responses::PaymentRequests)
       expect(payment_requests.error?).to be false
       expect(payment_requests.count).to eq(1)
