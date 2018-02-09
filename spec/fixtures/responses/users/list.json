@@ -1,0 +1,14 @@
+[
+  {
+    "userToken" : "usertoken1",
+    "name" : "NewUser",
+    "status" : "ACTIVE",
+    "bankAccounts": [
+      {
+        "bankAccountToken": "bankaccounttoken1",
+        "iban": "NL02ABNA0123456789",
+        "bankAccountLabel": "Personal account"
+      }
+    ]
+  }
+]

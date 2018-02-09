@@ -1,0 +1,32 @@
+# frozen_string_literal: true
+
+require "tikkie/api/access_token"
+require "tikkie/api/authentication"
+require "tikkie/api/client"
+require "tikkie/api/configuration"
+require "tikkie/api/exception"
+require "tikkie/api/request"
+require "tikkie/api/version"
+
+require "tikkie/api/requests/payment_requests"
+require "tikkie/api/requests/platforms"
+require "tikkie/api/requests/users"
+
+require "tikkie/api/responses/base"
+require "tikkie/api/responses/bank_account"
+require "tikkie/api/responses/error"
+require "tikkie/api/responses/pagination"
+require "tikkie/api/responses/payment_request_created"
+require "tikkie/api/responses/payment_request"
+require "tikkie/api/responses/payment_requests"
+require "tikkie/api/responses/payment"
+require "tikkie/api/responses/platform"
+require "tikkie/api/responses/platforms"
+require "tikkie/api/responses/user"
+require "tikkie/api/responses/users"
+
+require "tikkie/api/types/payment_request_status"
+require "tikkie/api/types/payment_status"
+require "tikkie/api/types/platform_status"
+require "tikkie/api/types/platform_usage"
+require "tikkie/api/types/user_status"

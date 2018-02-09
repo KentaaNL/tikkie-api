@@ -1,0 +1,9 @@
+{
+  "name" : "NewPlatform",
+  "platformToken" : "platformtoken1",
+  "phoneNumber" : "0601234567",
+  "email" : "x@yz.com",
+  "notificationUrl" : null,
+  "status" : "ACTIVE",
+  "platformUsage":"PAYMENT_REQUEST_FOR_MYSELF"
+}

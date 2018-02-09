@@ -1,0 +1,10 @@
+{
+    "errors": [{
+        "code": "ERR_4100_002",
+        "category": "NOT_FOUND",
+        "message": "Platform not found",
+        "reference": "https://developer.abnamro.com/api/tikkie/technical-details",
+        "traceId": "6fda2ce8-225d-4ca2-920a-b687c7aeb2f3",
+        "status": 404
+    }]
+}
