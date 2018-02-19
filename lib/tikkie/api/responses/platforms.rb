@@ -17,8 +17,10 @@ module Tikkie
           @platforms ||= begin
             platforms = []
 
-            data.each do |platform|
-              platforms << Tikkie::Api::Responses::Platform.new(platform)
+            unless error?
+              data.each do |platform|
+                platforms << Tikkie::Api::Responses::Platform.new(platform)
+              end
             end
 
             platforms

@@ -21,8 +21,10 @@ module Tikkie
           @users ||= begin
             users = []
 
-            data.each do |user|
-              users << Tikkie::Api::Responses::User.new(user)
+            unless error?
+              data.each do |user|
+                users << Tikkie::Api::Responses::User.new(user)
+              end
             end
 
             users
