@@ -37,6 +37,12 @@ config = Tikkie::Api::Configuration.new("your_api_key", "private_rsa.pem")
 client = Tikkie::Api::Client.new(config)
 ```
 
+The configuration is created for the production environment by default. If you want to use the sandbox testing environment, then add the option `test: true` when creating the configuration:
+
+```ruby
+config = Tikkie::Api::Configuration.new("your_api_key", "private_rsa.pem", test: true)
+```
+
 ### Platforms
 
 Retrieve all platforms:
@@ -118,7 +124,7 @@ payment_request = client.payment_requests.create("platform_token", "user_token",
 )
 
 tikkie_url = payment_request.payment_request_url
-payment_request_token =payment_request.payment_request_token
+payment_request_token = payment_request.payment_request_token
 ```
 
 ### Error handling
