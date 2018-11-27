@@ -46,7 +46,7 @@ module Tikkie
         private
 
         def to_cents(amount)
-          decimal = BigDecimal.new(amount.to_s)
+          decimal = BigDecimal(amount.to_s)
           decimal *= 100 # to cents
           decimal.to_i
         end

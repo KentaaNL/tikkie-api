@@ -15,7 +15,7 @@ RSpec.describe Tikkie::Api::Responses::PaymentRequest do
 
   describe '#amount' do
     it 'returns the amount' do
-      expect(subject.amount).to eq(BigDecimal.new("1.23"))
+      expect(subject.amount).to eq(BigDecimal("1.23"))
     end
   end
 

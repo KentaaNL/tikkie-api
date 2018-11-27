@@ -13,7 +13,7 @@ module Tikkie
         end
 
         def amount
-          decimal = BigDecimal.new(data[:amountInCents])
+          decimal = BigDecimal(data[:amountInCents])
           decimal /= 100.0
           decimal
         end
