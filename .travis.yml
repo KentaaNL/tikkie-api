@@ -2,10 +2,11 @@ sudo: false
 language: ruby
 cache: bundler
 before_install:
-  - gem update --system
-  - gem install bundler
+  - gem install rubygems-update -v '< 3'
+  - gem install bundler -v '< 2'
 rvm:
   - 2.2.10
   - 2.3.8
   - 2.4.5
   - 2.5.3
+  - 2.6.1
