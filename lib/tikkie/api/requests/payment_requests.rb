@@ -33,11 +33,12 @@ module Tikkie
 
         def create(platform_token, user_token, bank_account_token, options = {})
           params = {
-            amountInCents: to_cents(options.fetch(:amount)),
             currency: options.fetch(:currency),
-            description: options.fetch(:description),
-            externalId: options[:external_id]
+            description: options.fetch(:description)
           }
+          params[:amountInCents] = to_cents(options[:amount]) if options.key?(:amount)
+          params[:externalId] = options[:external_id] if options.key?(:external_id)
+
           response = @request.post("/tikkie/platforms/#{platform_token}/users/#{user_token}/bankaccounts/#{bank_account_token}/paymentrequests", params)
 
           Tikkie::Api::Responses::PaymentRequestCreated.new(response)
