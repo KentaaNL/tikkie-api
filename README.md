@@ -113,19 +113,21 @@ To retrieve a single payment request:
 payment_request = client.payment_requests.get("platform_token", "user_token", "payment_request_token")
 ```
 
-Create a new payment request for an existing user:
+Create a new payment request (i.e. Tikkie) for an existing user:
 
 ```ruby
 payment_request = client.payment_requests.create("platform_token", "user_token", "bank_account_token",
-  amount: "5.00",
+  amount: "5.00",               # optional
   currency: "EUR",
   description: "Test",
-  external_id: "Invoice 12345"  # optional
+  external_id: "Invoice 12345"  # mandatory only when platform_usage is set to `FOR_MYSELF`
 )
 
 tikkie_url = payment_request.payment_request_url
 payment_request_token = payment_request.payment_request_token
 ```
+
+The parameter `amount` is optional. When omitted, it will create a payment request with an open amount, where the payer can decide on the amount.
 
 ### Error handling
 
