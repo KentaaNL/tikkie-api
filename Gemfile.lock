@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tikkie-api (0.1.1)
+    tikkie-api (0.2.0)
       jwt (>= 1.0)
 
 GEM
@@ -66,4 +66,4 @@ DEPENDENCIES
   webmock (~> 2.3)
 
 BUNDLED WITH
-   1.17.1
+   1.17.2
