@@ -47,8 +47,19 @@ RSpec.describe Tikkie::Api::Requests::Users do
       users = subject.list("12345")
       expect(users).to be_a(Tikkie::Api::Responses::Users)
       expect(users.error?).to be true
-      expect(users.errors).to be
+      expect(users.errors).not_to be_empty
       expect(users.response_code).to eq(404)
+    end
+
+    it 'handles invalid json' do
+      data = File.read("spec/fixtures/responses/users/invalid.json")
+      stub_request(:get, "https://api.abnamro.com/v1/tikkie/platforms/12345/users").to_return(status: 200, body: data)
+
+      users = subject.list("12345")
+      expect(users).to be_a(Tikkie::Api::Responses::Users)
+      expect(users.error?).to be true
+      expect(users.errors).to be_empty
+      expect(users.response_code).to eq(200)
     end
   end
 end

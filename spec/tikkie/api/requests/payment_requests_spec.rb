@@ -47,6 +47,19 @@ RSpec.describe Tikkie::Api::Requests::PaymentRequests do
       expect(payment_requests.error?).to be false
       expect(payment_requests.count).to eq(1)
     end
+
+    describe 'error handling' do
+      it 'handles invalid json' do
+        data = File.read("spec/fixtures/responses/payment_requests/invalid.json")
+        stub_request(:get, "https://api.abnamro.com/v1/tikkie/platforms/12345/users/67890/paymentrequests?limit=20&offset=0").to_return(status: 200, body: data)
+
+        payment_requests = subject.list("12345", "67890")
+        expect(payment_requests).to be_a(Tikkie::Api::Responses::PaymentRequests)
+        expect(payment_requests.error?).to be true
+        expect(payment_requests.errors).to be_empty
+        expect(payment_requests.response_code).to eq(200)
+      end
+    end
   end
 
   describe '#get' do

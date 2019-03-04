@@ -12,7 +12,7 @@ module Tikkie
         def initialize(response)
           if response.respond_to?(:body)
             @response = response
-            @data = JSON.parse(response.body, symbolize_names: true)
+            @data = parse_body(response.body)
           else
             @data = response
           end
@@ -23,7 +23,7 @@ module Tikkie
         end
 
         def success?
-          response_code == 200 || response_code == 201
+          (response_code == 200 || response_code == 201) && !@invalid
         end
 
         def error?
@@ -46,6 +46,20 @@ module Tikkie
 
             errors
           end
+        end
+
+        private
+
+        def parse_body(body)
+          body = body.respond_to?(:read) ? body.read : body
+
+          JSON.parse(body, symbolize_names: true)
+        rescue JSON::ParserError => ex
+          @invalid = true
+
+          {
+            message: "Unable to parse JSON: #{ex.message}"
+          }
         end
       end
     end

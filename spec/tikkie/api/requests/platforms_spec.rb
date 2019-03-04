@@ -47,8 +47,19 @@ RSpec.describe Tikkie::Api::Requests::Platforms do
       platforms = subject.list
       expect(platforms).to be_a(Tikkie::Api::Responses::Platforms)
       expect(platforms.error?).to be true
-      expect(platforms.errors).to be
+      expect(platforms.errors).not_to be_empty
       expect(platforms.response_code).to eq(404)
+    end
+
+    it 'handles invalid json' do
+      data = File.read("spec/fixtures/responses/platforms/invalid.html")
+      stub_request(:get, "https://api.abnamro.com/v1/tikkie/platforms").to_return(status: 200, body: data)
+
+      platforms = subject.list
+      expect(platforms).to be_a(Tikkie::Api::Responses::Platforms)
+      expect(platforms.error?).to be true
+      expect(platforms.errors).to be_empty
+      expect(platforms.response_code).to eq(200)
     end
   end
 end
