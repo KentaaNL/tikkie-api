@@ -98,12 +98,16 @@ payment_requests = client.payment_requests.list("platform_token", "user_token")
 The payments requests response is paginated. You can use the method `more_elements?` to determine if there's more data to retrieve. In the next request, set the `offset` parameter to the new offset using the method `next_offset` from the previous response. For example:
 
 ```ruby
-response = client.payment_requests.list("platform_token", "user_token")
-payment_requests = response.to_a
+options = {}
 
-while response.more_elements?
-  response = client.payment_requests.list("platform_token", "user_token", offset: response.next_offset)
-  payment_requests << response.to_a
+loop do
+  payment_requests = client.payment_requests.list("platform_token", "user_token", options)
+
+  # Do something with payment requests
+
+  break unless payment_requests.more_elements?
+
+  options[:offset] = payment_requests.next_offset
 end
 ```
 
