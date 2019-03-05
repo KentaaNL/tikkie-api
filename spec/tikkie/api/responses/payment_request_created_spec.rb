@@ -3,8 +3,9 @@
 require "spec_helper"
 
 RSpec.describe Tikkie::Api::Responses::PaymentRequestCreated do
-  let(:response) { JSON.parse(File.read("spec/fixtures/responses/payment_requests/create.json"), symbolize_names: true) }
   subject { Tikkie::Api::Responses::PaymentRequestCreated.new(response) }
+
+  let(:response) { JSON.parse(File.read("spec/fixtures/responses/payment_requests/create.json"), symbolize_names: true) }
 
   describe '#payment_request_url' do
     it 'returns the payment request URL' do

@@ -3,9 +3,10 @@
 require "spec_helper"
 
 RSpec.describe Tikkie::Api::Responses::User do
+  subject { Tikkie::Api::Responses::User.new(user) }
+
   let(:users) { JSON.parse(File.read("spec/fixtures/responses/users/list.json"), symbolize_names: true) }
   let(:user) { users.first }
-  subject { Tikkie::Api::Responses::User.new(user) }
 
   describe '#user_token' do
     it 'returns the user token' do

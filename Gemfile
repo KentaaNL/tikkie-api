@@ -8,3 +8,4 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 gemspec
 
 gem 'rubocop', '~> 0.65.0'
+gem 'rubocop-rspec', '~> 1.32.0'

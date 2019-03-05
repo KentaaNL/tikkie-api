@@ -3,10 +3,11 @@
 require "spec_helper"
 
 RSpec.describe Tikkie::Api::Responses::Payment do
+  subject { Tikkie::Api::Responses::Payment.new(payment) }
+
   let(:payment_requests) { JSON.parse(File.read("spec/fixtures/responses/payment_requests/list.json"), symbolize_names: true) }
   let(:payment_request) { payment_requests[:paymentRequests].first }
   let(:payment) { payment_request[:payments].first }
-  subject { Tikkie::Api::Responses::Payment.new(payment) }
 
   describe '#paymentToken' do
     it 'returns the payment token' do

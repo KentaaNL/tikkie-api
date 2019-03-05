@@ -3,8 +3,9 @@
 require "spec_helper"
 
 RSpec.describe Tikkie::Api::Client do
-  let(:config) { Tikkie::Api::Configuration.new("12345", "spec/fixtures/private_rsa.pem") }
   subject { Tikkie::Api::Client.new(config) }
+
+  let(:config) { Tikkie::Api::Configuration.new("12345", "spec/fixtures/private_rsa.pem") }
 
   describe '#platforms' do
     it 'returns an instance of Tikkie::Api::Requests::Platforms' do

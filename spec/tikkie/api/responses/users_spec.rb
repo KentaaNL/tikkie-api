@@ -3,13 +3,11 @@
 require "spec_helper"
 
 RSpec.describe Tikkie::Api::Responses::Users do
-  let(:users) { JSON.parse(File.read("spec/fixtures/responses/users/list.json"), symbolize_names: true) }
-  let(:response_code) { 200 }
-  subject { Tikkie::Api::Responses::Users.new(users) }
+  subject { Tikkie::Api::Responses::Users.new(response) }
 
-  before(:each) do
-    allow(subject).to receive(:response_code).and_return(response_code)
-  end
+  let(:response) { instance_double("Net::HTTPResponse", body: body, code: response_code) }
+  let(:body) { File.read("spec/fixtures/responses/users/list.json") }
+  let(:response_code) { 200 }
 
   describe 'enumerable' do
     it 'returns the users' do
@@ -19,12 +17,12 @@ RSpec.describe Tikkie::Api::Responses::Users do
   end
 
   describe 'error handling' do
-    let(:users) { JSON.parse(File.read("spec/fixtures/responses/users/error.json"), symbolize_names: true) }
+    let(:body) { File.read("spec/fixtures/responses/users/error.json") }
     let(:response_code) { 404 }
 
     it 'sets the error flag and returns an empty array' do
       expect(subject.error?).to be true
-      expect(subject.errors).to be
+      expect(subject.errors).not_to be_empty
       expect(subject.count).to eq(0)
     end
   end

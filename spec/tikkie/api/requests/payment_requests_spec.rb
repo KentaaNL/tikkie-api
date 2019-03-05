@@ -3,11 +3,12 @@
 require "spec_helper"
 
 RSpec.describe Tikkie::Api::Requests::PaymentRequests do
-  let(:config) { Tikkie::Api::Configuration.new("12345", "spec/fixtures/private_rsa.pem") }
-  let(:request) { Tikkie::Api::Request.new(config) }
   subject { Tikkie::Api::Requests::PaymentRequests.new(request) }
 
-  before(:each) do
+  let(:config) { Tikkie::Api::Configuration.new("12345", "spec/fixtures/private_rsa.pem") }
+  let(:request) { Tikkie::Api::Request.new(config) }
+
+  before do
     # Stub authentication request
     token = File.read("spec/fixtures/responses/token.json")
     stub_request(:post, "https://api.abnamro.com/v1/oauth/token").to_return(status: 200, body: token)

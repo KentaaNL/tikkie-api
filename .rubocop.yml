@@ -1,7 +1,10 @@
+require: rubocop-rspec
+
 AllCops:
   TargetRubyVersion: 2.3
   DisplayCopNames: true
   DisplayStyleGuide: true
+
 
 Metrics/AbcSize:
   Max: 21
@@ -18,6 +21,20 @@ Metrics/LineLength:
 
 Metrics/MethodLength:
   Enabled: false
+
+
+RSpec/DescribedClass:
+  EnforcedStyle: explicit
+
+RSpec/ExampleLength:
+  Max: 8
+
+RSpec/MultipleExpectations:
+  Max: 4
+
+RSpec/NamedSubject:
+  Enabled: false
+
 
 Style/Documentation:
   Exclude:

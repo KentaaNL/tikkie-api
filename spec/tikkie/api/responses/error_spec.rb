@@ -3,10 +3,11 @@
 require "spec_helper"
 
 RSpec.describe Tikkie::Api::Responses::Error do
+  subject { Tikkie::Api::Responses::Error.new(error) }
+
   let(:response) { JSON.parse(File.read("spec/fixtures/responses/platforms/error.json"), symbolize_names: true) }
   let(:errors) { response[:errors] }
   let(:error) { errors.first }
-  subject { Tikkie::Api::Responses::Error.new(error) }
 
   describe '#code' do
     it 'returns the error code' do

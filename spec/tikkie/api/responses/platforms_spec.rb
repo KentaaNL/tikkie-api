@@ -3,13 +3,11 @@
 require "spec_helper"
 
 RSpec.describe Tikkie::Api::Responses::Platforms do
-  let(:platforms) { JSON.parse(File.read("spec/fixtures/responses/platforms/list.json"), symbolize_names: true) }
-  let(:response_code) { 200 }
-  subject { Tikkie::Api::Responses::Platforms.new(platforms) }
+  subject { Tikkie::Api::Responses::Platforms.new(response) }
 
-  before(:each) do
-    allow(subject).to receive(:response_code).and_return(response_code)
-  end
+  let(:response) { instance_double("Net::HTTPResponse", body: body, code: response_code) }
+  let(:body) { File.read("spec/fixtures/responses/platforms/list.json") }
+  let(:response_code) { 200 }
 
   describe 'enumerable' do
     it 'returns the platforms' do
@@ -19,12 +17,12 @@ RSpec.describe Tikkie::Api::Responses::Platforms do
   end
 
   describe 'error handling' do
-    let(:platforms) { JSON.parse(File.read("spec/fixtures/responses/platforms/error.json"), symbolize_names: true) }
+    let(:body) { File.read("spec/fixtures/responses/platforms/error.json") }
     let(:response_code) { 404 }
 
-    it 'sets the error flag and returns an empty array' do
+    it 'sets the error flag and returns an empty result' do
       expect(subject.error?).to be true
-      expect(subject.errors).to be
+      expect(subject.errors).not_to be_empty
       expect(subject.count).to eq(0)
     end
   end

@@ -3,8 +3,11 @@
 require "spec_helper"
 
 RSpec.describe Tikkie::Api::Responses::PaymentRequests do
-  let(:payment_requests) { JSON.parse(File.read("spec/fixtures/responses/payment_requests/list.json"), symbolize_names: true) }
-  subject { Tikkie::Api::Responses::PaymentRequests.new(payment_requests) }
+  subject { Tikkie::Api::Responses::PaymentRequests.new(response) }
+
+  let(:response) { instance_double("Net::HTTPResponse", body: body, code: response_code) }
+  let(:body) { File.read("spec/fixtures/responses/payment_requests/list.json") }
+  let(:response_code) { 200 }
 
   describe 'enumerable' do
     it 'returns the payment requests' do
