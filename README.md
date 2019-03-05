@@ -24,11 +24,16 @@ Or install it yourself as:
 
 ## Usage
 
+### Preparation
+
+This library uses a JSON Web Token (JWT) as authentication method. You need to create a public/private key pair to sign the tokens.
+See the [developer documentation from ABN AMRO](https://developer.abnamro.com/get-started#authentication) to get started.
+
+Make sure you have created an App in the developers portal with the Tikkie API product enabled. This App contains a Consumer Key (this is your API key), which you will need next.
+
 ### Initialization
 
-First create a Tikkie configuration and specify your API key and the path to your private RSA key. See also the [developer documentation from ABN AMRO](https://developer.abnamro.com/get-started) to get started.
-
-Use the configuration to initialize a Tikkie client:
+First create a Tikkie configuration and specify the API key of your App and the path to your private RSA key. Then use the configuration to initialize a Tikkie client:
 
 ```ruby
 require 'tikkie/api'
