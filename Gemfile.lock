@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tikkie-api (0.2.0)
+    tikkie-api (0.2.1)
       jwt (>= 1.0)
 
 GEM
