@@ -51,8 +51,10 @@ module Tikkie
           @payments ||= begin
             payments = []
 
-            data[:payments].each do |data|
-              payments << Tikkie::Api::Responses::Payment.new(data)
+            if data[:payments]
+              data[:payments].each do |data|
+                payments << Tikkie::Api::Responses::Payment.new(data)
+              end
             end
 
             payments

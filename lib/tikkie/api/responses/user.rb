@@ -26,8 +26,10 @@ module Tikkie
           @bank_accounts ||= begin
             bank_accounts = []
 
-            data[:bankAccounts].each do |data|
-              bank_accounts << Tikkie::Api::Responses::BankAccount.new(data)
+            if data[:bankAccounts]
+              data[:bankAccounts].each do |data|
+                bank_accounts << Tikkie::Api::Responses::BankAccount.new(data)
+              end
             end
 
             bank_accounts
