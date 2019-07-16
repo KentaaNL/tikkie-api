@@ -152,7 +152,7 @@ if payment_request.success?
 else
   # Error handling...
 
-  puts payment_request.errors
+  puts payment_request.errors.inspect
 end
 ```
 
