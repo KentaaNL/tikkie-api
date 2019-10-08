@@ -53,7 +53,12 @@ module Tikkie
           aud: @config.oauth_token_url
         }
 
-        JWT.encode(payload, @config.private_data, @config.jwt_hashing_algorithm, typ: "JWT")
+        # Send header typ as String, not symbol (JWT version 1.x adds "typ" as String by default).
+        headers = {
+          "typ" => "JWT"
+        }
+
+        JWT.encode(payload, @config.private_data, @config.jwt_hashing_algorithm, headers)
       end
     end
   end
