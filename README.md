@@ -38,14 +38,14 @@ First create a Tikkie configuration and specify the API key of your App and the 
 ```ruby
 require 'tikkie/api'
 
-config = Tikkie::Api::Configuration.new("your_api_key", "private_rsa.pem")
-client = Tikkie::Api::Client.new(config)
+config = Tikkie::Api::V1::Configuration.new("your_api_key", "private_rsa.pem")
+client = Tikkie::Api::V1::Client.new(config)
 ```
 
 The configuration is created for the production environment by default. If you want to use the sandbox testing environment, then add the option `test: true` when creating the configuration:
 
 ```ruby
-config = Tikkie::Api::Configuration.new("your_api_key", "private_rsa.pem", test: true)
+config = Tikkie::Api::V1::Configuration.new("your_api_key", "private_rsa.pem", test: true)
 ```
 
 ### Platforms
@@ -62,7 +62,7 @@ Create a new platform:
 platform = client.platforms.create(
   name: "Kentaa",
   phone_number: "0601234567",
-  platform_usage: Tikkie::Api::Types::PlatformUsage::FOR_MYSELF,
+  platform_usage: Tikkie::Api::V1::Types::PlatformUsage::FOR_MYSELF,
   email: "info@kentaa.nl",                      # optional
   notification_url: "https://kentaa.nl/tikkie"  # optional
 )
