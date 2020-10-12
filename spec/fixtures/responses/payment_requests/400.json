@@ -1,0 +1,11 @@
+{
+  "errors": [
+    {
+      "code": "PAGE_NUMBER_MISSING",
+      "message": "pageNumber was not supplied in the query.",
+      "reference": "https://developer.abnamro.com",
+      "status": 400,
+      "traceId": "5e332871-7f05-4de6-975e-27de0a369629"
+    }
+  ]
+}

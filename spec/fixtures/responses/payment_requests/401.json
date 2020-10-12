@@ -1,0 +1,11 @@
+{
+  "errors": [
+    {
+      "code": "APP_TOKEN_INVALID",
+      "message": "appToken is in an invalid format.",
+      "reference": "https://developer.abnamro.com",
+      "status": 401,
+      "traceId": "5e332871-7f05-4de6-975e-27de0a369629"
+    }
+  ]
+}

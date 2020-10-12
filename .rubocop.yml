@@ -11,14 +11,14 @@ AllCops:
 
 
 Metrics/AbcSize:
-  Max: 21
+  Max: 41
 
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
 
 Metrics/CyclomaticComplexity:
-  Max: 7
+  Max: 10
 
 Metrics/LineLength:
   Enabled: false
@@ -26,18 +26,18 @@ Metrics/LineLength:
 Metrics/MethodLength:
   Enabled: false
 
+Metrics/PerceivedComplexity:
+  Max: 8
+
 
 RSpec/DescribedClass:
   EnforcedStyle: explicit
 
 RSpec/ExampleLength:
-  Max: 8
+  Max: 12
 
 RSpec/MultipleExpectations:
-  Max: 4
-
-RSpec/NamedSubject:
-  Enabled: false
+  Max: 8
 
 
 Style/Documentation:

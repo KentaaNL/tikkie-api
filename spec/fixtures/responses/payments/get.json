@@ -1,0 +1,19 @@
+{
+  "paymentToken": "21ef7413-cc3c-4c80-9272-6710fada28e4",
+  "tikkieId": "000012345678",
+  "counterPartyName": "E. Xample",
+  "counterPartyAccountNumber": "NL01ABNA1234567890",
+  "amountInCents": 1500,
+  "description": "Invoice 1815",
+  "createdDateTime": "2019-09-09T12:34:56.000Z",
+  "refunds": [
+    {
+      "refundToken": "abcdzr8hnVWTgXXcFRLUMc",
+      "amountInCents": 1000,
+      "description": "Refunded 10.00 for broken product.",
+      "referenceId": "inv_1815_ref_1",
+      "createdDateTime": "2019-09-09T12:34:56.000Z",
+      "status": "PAID"
+    }
+  ]
+}

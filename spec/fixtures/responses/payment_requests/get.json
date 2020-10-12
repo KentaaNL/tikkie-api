@@ -1,0 +1,12 @@
+{
+  "paymentRequestToken": "qzdnzr8hnVWTgXXcFRLUMc",
+  "url": "https://tikkie.me/pay/Tikkie/qzdnzr8hnVWTgXXcFRLUMc",
+  "amountInCents": 1500,
+  "description": "Invoice 1815",
+  "referenceId": "inv_1815",
+  "createdDateTime": "2019-09-09T12:34:56.000Z",
+  "expiryDate": "2020-03-03",
+  "status": "OPEN",
+  "numberOfPayments": 2,
+  "totalAmountPaidInCents": 3000
+}
