@@ -10,13 +10,13 @@ RSpec.describe Tikkie::Api::V1::Requests::Users do
 
   before do
     # Stub authentication request
-    token = File.read("spec/fixtures/responses/token.json")
+    token = File.read("spec/fixtures/responses/v1/token.json")
     stub_request(:post, "https://api.abnamro.com/v1/oauth/token").to_return(status: 200, body: token)
   end
 
   describe '#list' do
     it 'returns a list of users' do
-      data = File.read("spec/fixtures/responses/users/list.json")
+      data = File.read("spec/fixtures/responses/v1/users/list.json")
       stub_request(:get, "https://api.abnamro.com/v1/tikkie/platforms/12345/users").to_return(status: 200, body: data)
 
       users = subject.list("12345")
@@ -31,7 +31,7 @@ RSpec.describe Tikkie::Api::V1::Requests::Users do
 
   describe '#create' do
     it 'creates a new user' do
-      data = File.read("spec/fixtures/responses/users/create.json")
+      data = File.read("spec/fixtures/responses/v1/users/create.json")
       stub_request(:post, "https://api.abnamro.com/v1/tikkie/platforms/12345/users").to_return(status: 201, body: data)
 
       user = subject.create("12345", name: "NewUser", phone_number: "0612345678", iban: "NL02ABNA0123456789", bank_account_label: "Personal account")
@@ -42,7 +42,7 @@ RSpec.describe Tikkie::Api::V1::Requests::Users do
 
   describe 'error handling' do
     it 'handles 404 errors successfully' do
-      data = File.read("spec/fixtures/responses/users/error.json")
+      data = File.read("spec/fixtures/responses/v1/users/error.json")
       stub_request(:get, "https://api.abnamro.com/v1/tikkie/platforms/12345/users").to_return(status: 404, body: data)
 
       users = subject.list("12345")
@@ -53,7 +53,7 @@ RSpec.describe Tikkie::Api::V1::Requests::Users do
     end
 
     it 'handles invalid json' do
-      data = File.read("spec/fixtures/responses/users/invalid.json")
+      data = File.read("spec/fixtures/responses/v1/users/invalid.json")
       stub_request(:get, "https://api.abnamro.com/v1/tikkie/platforms/12345/users").to_return(status: 200, body: data)
 
       users = subject.list("12345")

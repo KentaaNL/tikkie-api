@@ -5,7 +5,7 @@ require "spec_helper"
 RSpec.describe Tikkie::Api::V1::Responses::Platform do
   subject { Tikkie::Api::V1::Responses::Platform.new(platform) }
 
-  let(:platforms) { JSON.parse(File.read("spec/fixtures/responses/platforms/list.json"), symbolize_names: true) }
+  let(:platforms) { JSON.parse(File.read("spec/fixtures/responses/v1/platforms/list.json"), symbolize_names: true) }
   let(:platform) { platforms.first }
 
   describe '#platform_token' do

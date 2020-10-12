@@ -5,7 +5,7 @@ require "spec_helper"
 RSpec.describe Tikkie::Api::V1::Responses::BankAccount do
   subject { Tikkie::Api::V1::Responses::BankAccount.new(user[:bankAccounts].first) }
 
-  let(:users) { JSON.parse(File.read("spec/fixtures/responses/users/list.json"), symbolize_names: true) }
+  let(:users) { JSON.parse(File.read("spec/fixtures/responses/v1/users/list.json"), symbolize_names: true) }
   let(:user) { users.first }
 
   describe '#bank_account_token' do

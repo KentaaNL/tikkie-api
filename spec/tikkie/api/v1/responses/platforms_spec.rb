@@ -6,7 +6,7 @@ RSpec.describe Tikkie::Api::V1::Responses::Platforms do
   subject { Tikkie::Api::V1::Responses::Platforms.new(response) }
 
   let(:response) { instance_double("Net::HTTPResponse", body: body, code: response_code) }
-  let(:body) { File.read("spec/fixtures/responses/platforms/list.json") }
+  let(:body) { File.read("spec/fixtures/responses/v1/platforms/list.json") }
   let(:response_code) { 200 }
 
   describe 'enumerable' do
@@ -17,7 +17,7 @@ RSpec.describe Tikkie::Api::V1::Responses::Platforms do
   end
 
   describe 'error handling' do
-    let(:body) { File.read("spec/fixtures/responses/platforms/error.json") }
+    let(:body) { File.read("spec/fixtures/responses/v1/platforms/error.json") }
     let(:response_code) { 404 }
 
     it 'sets the error flag and returns an empty result' do

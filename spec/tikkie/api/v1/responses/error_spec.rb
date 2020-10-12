@@ -5,7 +5,7 @@ require "spec_helper"
 RSpec.describe Tikkie::Api::V1::Responses::Error do
   subject { Tikkie::Api::V1::Responses::Error.new(error) }
 
-  let(:response) { JSON.parse(File.read("spec/fixtures/responses/platforms/error.json"), symbolize_names: true) }
+  let(:response) { JSON.parse(File.read("spec/fixtures/responses/v1/platforms/error.json"), symbolize_names: true) }
   let(:errors) { response[:errors] }
   let(:error) { errors.first }
 

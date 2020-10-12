@@ -10,13 +10,13 @@ RSpec.describe Tikkie::Api::V1::Requests::PaymentRequests do
 
   before do
     # Stub authentication request
-    token = File.read("spec/fixtures/responses/token.json")
+    token = File.read("spec/fixtures/responses/v1/token.json")
     stub_request(:post, "https://api.abnamro.com/v1/oauth/token").to_return(status: 200, body: token)
   end
 
   describe '#list' do
     it 'returns a list of payment requests' do
-      data = File.read("spec/fixtures/responses/payment_requests/list.json")
+      data = File.read("spec/fixtures/responses/v1/payment_requests/list.json")
       stub_request(:get, "https://api.abnamro.com/v1/tikkie/platforms/12345/users/67890/paymentrequests?limit=20&offset=0").to_return(status: 200, body: data)
 
       payment_requests = subject.list("12345", "67890")
@@ -29,7 +29,7 @@ RSpec.describe Tikkie::Api::V1::Requests::PaymentRequests do
     end
 
     it 'paginates using offset and limit as parameters' do
-      data = File.read("spec/fixtures/responses/payment_requests/list.json")
+      data = File.read("spec/fixtures/responses/v1/payment_requests/list.json")
       stub_request(:get, "https://api.abnamro.com/v1/tikkie/platforms/12345/users/67890/paymentrequests?limit=10&offset=20").to_return(status: 200, body: data)
 
       payment_requests = subject.list("12345", "67890", offset: 20, limit: 10)
@@ -40,7 +40,7 @@ RSpec.describe Tikkie::Api::V1::Requests::PaymentRequests do
     end
 
     it 'filters data using from_date and to_date as parameters' do
-      data = File.read("spec/fixtures/responses/payment_requests/list.json")
+      data = File.read("spec/fixtures/responses/v1/payment_requests/list.json")
       stub_request(:get, "https://api.abnamro.com/v1/tikkie/platforms/12345/users/67890/paymentrequests?fromDate=2018-01-01T00:00:00Z&limit=20&offset=0&toDate=2018-01-07T00:00:00Z").to_return(status: 200, body: data)
 
       payment_requests = subject.list("12345", "67890", from_date: Time.utc(2018, 1, 1), to_date: Time.utc(2018, 1, 7))
@@ -51,7 +51,7 @@ RSpec.describe Tikkie::Api::V1::Requests::PaymentRequests do
 
     describe 'error handling' do
       it 'handles invalid json' do
-        data = File.read("spec/fixtures/responses/payment_requests/invalid.json")
+        data = File.read("spec/fixtures/responses/v1/payment_requests/invalid.json")
         stub_request(:get, "https://api.abnamro.com/v1/tikkie/platforms/12345/users/67890/paymentrequests?limit=20&offset=0").to_return(status: 200, body: data)
 
         payment_requests = subject.list("12345", "67890")
@@ -65,7 +65,7 @@ RSpec.describe Tikkie::Api::V1::Requests::PaymentRequests do
 
   describe '#get' do
     it 'returns one payment request' do
-      data = File.read("spec/fixtures/responses/payment_requests/get.json")
+      data = File.read("spec/fixtures/responses/v1/payment_requests/get.json")
       stub_request(:get, "https://api.abnamro.com/v1/tikkie/platforms/12345/users/67890/paymentrequests/abcdef").to_return(status: 200, body: data)
 
       payment_request = subject.get("12345", "67890", "abcdef")
@@ -76,7 +76,7 @@ RSpec.describe Tikkie::Api::V1::Requests::PaymentRequests do
 
   describe '#create' do
     it 'creates a new payment request' do
-      data = File.read("spec/fixtures/responses/payment_requests/create.json")
+      data = File.read("spec/fixtures/responses/v1/payment_requests/create.json")
       stub_request(:post, "https://api.abnamro.com/v1/tikkie/platforms/12345/users/67890/bankaccounts/abcdef/paymentrequests").to_return(status: 201, body: data)
 
       payment_request = subject.create("12345", "67890", "abcdef", amount: "5.00", currency: "EUR", description: "Test")

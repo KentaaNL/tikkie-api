@@ -6,7 +6,7 @@ RSpec.describe Tikkie::Api::V1::Responses::PaymentRequests do
   subject { Tikkie::Api::V1::Responses::PaymentRequests.new(response) }
 
   let(:response) { instance_double("Net::HTTPResponse", body: body, code: response_code) }
-  let(:body) { File.read("spec/fixtures/responses/payment_requests/list.json") }
+  let(:body) { File.read("spec/fixtures/responses/v1/payment_requests/list.json") }
   let(:response_code) { 200 }
 
   describe 'enumerable' do

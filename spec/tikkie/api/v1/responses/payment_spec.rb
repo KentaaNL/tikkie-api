@@ -5,7 +5,7 @@ require "spec_helper"
 RSpec.describe Tikkie::Api::V1::Responses::Payment do
   subject { Tikkie::Api::V1::Responses::Payment.new(payment) }
 
-  let(:payment_requests) { JSON.parse(File.read("spec/fixtures/responses/payment_requests/list.json"), symbolize_names: true) }
+  let(:payment_requests) { JSON.parse(File.read("spec/fixtures/responses/v1/payment_requests/list.json"), symbolize_names: true) }
   let(:payment_request) { payment_requests[:paymentRequests].first }
   let(:payment) { payment_request[:payments].first }
 
