@@ -1,5 +1,0 @@
-{
-  "paymentRequestUrl" : "https://pay.here.com/123",
-  "paymentRequestToken" : "paymentrequesttoken1",
-  "externalId": "Invoice: 4567"
-}
