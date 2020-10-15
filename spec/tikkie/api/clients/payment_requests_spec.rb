@@ -64,6 +64,14 @@ RSpec.describe Tikkie::Api::Clients::PaymentRequests do
         end
       end
     end
+
+    context 'when response contains invalid payload' do
+      it 'raises an exception' do
+        stub_request(:get, "https://api.abnamro.com/v2/tikkie/paymentrequests?pageNumber=0&pageSize=50").to_return(status: [500, "Internal Server Error"], body: "Internal Server Error")
+
+        expect { client.list }.to raise_error(Tikkie::Api::Exception, "Invalid payload")
+      end
+    end
   end
 
   describe '#list' do

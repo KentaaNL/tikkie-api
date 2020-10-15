@@ -71,9 +71,8 @@ module Tikkie
           logger.debug("[Tikkie] Response: #{response.http_code}, body: #{response.body}")
         end
 
-        if response.error?
-          raise Tikkie::Api::RequestError, response
-        end
+        raise Tikkie::Api::Exception, "Invalid payload" if response.invalid?
+        raise Tikkie::Api::RequestError, response if response.error?
 
         response
       end

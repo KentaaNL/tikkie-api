@@ -3,7 +3,7 @@
 module Tikkie
   module Api
     module Clients
-      # Base class for all client.
+      # Base class for all clients.
       class Base
         attr_reader :config
 

@@ -22,6 +22,10 @@ module Tikkie
         !success?
       end
 
+      def invalid?
+        body.nil?
+      end
+
       def request_uri
         response.uri
       end
@@ -52,6 +56,8 @@ module Tikkie
 
       def parse_body(body)
         JSON.parse(body, symbolize_names: true)
+      rescue JSON::ParserError
+        nil
       end
     end
   end

@@ -2,6 +2,7 @@
 
 require "bundler/setup"
 require "tikkie/api"
+require "tikkie/notification"
 require "webmock/rspec"
 require "timecop"
 
