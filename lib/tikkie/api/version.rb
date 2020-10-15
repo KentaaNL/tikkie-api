@@ -2,6 +2,6 @@
 
 module Tikkie
   module Api
-    VERSION = "0.2.2"
+    VERSION = "2.0.0beta"
   end
 end
