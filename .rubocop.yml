@@ -1,4 +1,6 @@
-require: rubocop-rspec
+require:
+  - rubocop-performance
+  - rubocop-rspec
 
 AllCops:
   TargetRubyVersion: 2.4
@@ -10,6 +12,10 @@ AllCops:
     - 'vendor/**/*'
 
 
+Layout/LineLength:
+  Enabled: false
+
+
 Metrics/AbcSize:
   Max: 43
 
@@ -19,9 +25,6 @@ Metrics/BlockLength:
 
 Metrics/CyclomaticComplexity:
   Max: 11
-
-Metrics/LineLength:
-  Enabled: false
 
 Metrics/MethodLength:
   Enabled: false
@@ -44,10 +47,7 @@ Style/Documentation:
   Exclude:
     - 'spec/**/*'
 
-Style/GuardClause:
-  Enabled: false
-
-Style/IfUnlessModifier:
+Style/FormatStringToken:
   Enabled: false
 
 Style/SafeNavigation:

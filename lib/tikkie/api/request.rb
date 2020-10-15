@@ -32,9 +32,7 @@ module Tikkie
         uri = URI.join(config.api_url, path)
         uri.query = URI.encode_www_form(params) unless params.empty?
 
-        if ENV['TIKKIE_DEBUG']
-          logger.debug("[Tikkie] Request: #{http_method.upcase} #{uri}")
-        end
+        logger.debug("[Tikkie] Request: #{http_method.upcase} #{uri}") if ENV['TIKKIE_DEBUG']
 
         case http_method
         when :get
@@ -67,9 +65,7 @@ module Tikkie
           raise Tikkie::Api::Exception, e.message
         end
 
-        if ENV['TIKKIE_DEBUG']
-          logger.debug("[Tikkie] Response: #{response.http_code}, body: #{response.body}")
-        end
+        logger.debug("[Tikkie] Response: #{response.http_code}, body: #{response.body}") if ENV['TIKKIE_DEBUG']
 
         raise Tikkie::Api::Exception, "Invalid payload" if response.invalid?
         raise Tikkie::Api::RequestError, response if response.error?
