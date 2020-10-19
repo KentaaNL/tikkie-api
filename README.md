@@ -51,7 +51,7 @@ Or install it yourself as:
 
 ## Usage
 
-Create a Tikkie client using your API key and an App token. If you don't have an App token yet, please read the [documentation about App tokens](https://developer.abnamro.com/api-products/tikkie/reference-documentation#section/Overview) or use the [Sandbox apps endpoint](#sandbox-apps) to create an App token in the sandbox environment.
+Create a Tikkie client using your API key and an App token. If you don't have an App token yet, please read the [documentation about App tokens](https://developer.abnamro.com/api-products/tikkie/reference-documentation#section/Overview/App-token) or use the [Sandbox apps endpoint](#sandbox-apps) to create an App token in the sandbox environment.
 
 ```ruby
 require 'tikkie/api'
@@ -229,7 +229,7 @@ A sandbox app is used to make API requests in the sandbox environment.
 
 You must initialize the Tikkie client by omitting the App token and adding the option `sandbox: true`:
 
-```
+```ruby
 client = Tikkie::Api::Client.new(api_key: "12345", sandbox: true)
 ```
 
@@ -276,13 +276,13 @@ notification.payment_request_token  # => "qzdnzr8hnVWTgXXcFRLUMc"
 notification.payment_token  # => "21ef7413-cc3c-4c80-9272-6710fada28e4"
 ```
 
-See [Tikkie::Notifications](lib/tikkie/api/notifications/) for all types of notifications.
+See [Tikkie::Notifications](lib/tikkie/notifications/) for all types of notifications.
 
 ## API support
 
 This gem supports [Tikkie API (v2)](https://developer.abnamro.com/api-products/tikkie) as of release 2.0.0.
 
-The deprecated [Tikkie Payment Request API (v1)](https://developer.abnamro.com/api-products/tikkie-payment-request)) is currently namespaced under [Tikkie::Api::V1](lib/tikkie/api/v1/) to allow migration to Tikkie v2. This code is not supported anymore and will be removed in a future release of this gem.
+The deprecated [Tikkie Payment Request API (v1)](https://developer.abnamro.com/api-products/tikkie-payment-request) is currently namespaced under [Tikkie::Api::V1](lib/tikkie/api/v1/) to allow migration to Tikkie v2. This code is not supported anymore and will be removed in a future release of this gem.
 
 ## Development
 
