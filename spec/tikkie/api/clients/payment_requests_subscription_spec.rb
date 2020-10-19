@@ -10,7 +10,9 @@ RSpec.describe Tikkie::Api::Clients::PaymentRequestsSubscription do
   describe '#create' do
     it 'creates a new payment requests subscription' do
       data = File.read("spec/fixtures/responses/payment_requests_subscription/create.json")
-      stub_request(:post, "https://api.abnamro.com/v2/tikkie/paymentrequestssubscription").to_return(status: 201, body: data)
+      stub_request(:post, "https://api.abnamro.com/v2/tikkie/paymentrequestssubscription")
+        .with(body: { url: "https://www.example.com/notification" }.to_json)
+        .to_return(status: 201, body: data)
 
       payment_requests_subscription = client.create(url: "https://www.example.com/notification")
       expect(payment_requests_subscription).to be_a(Tikkie::Api::Resources::PaymentRequestsSubscription)

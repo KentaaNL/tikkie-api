@@ -86,7 +86,7 @@ module Tikkie
             amount = Tikkie::Api::Amount.new(attributes[:amount])
             params[:amountInCents] = amount.to_cents
           end
-          params[:expiryDate] = attributes[:expiry_date] if attributes.key?(:expiry_date)
+          params[:expiryDate] = attributes[:expiry_date].respond_to?(:strftime) ? attributes[:expiry_date].strftime("%F") : attributes[:expiry_date] if attributes.key?(:expiry_date)
           params[:referenceId] = attributes[:reference_id] if attributes.key?(:reference_id)
 
           request.post("paymentrequests", options, params)

@@ -28,9 +28,11 @@ RSpec.describe Tikkie::Api::Clients::Refunds do
   describe '#create' do
     it 'creates a new refund' do
       data = File.read("spec/fixtures/responses/refunds/create.json")
-      stub_request(:post, "https://api.abnamro.com/v2/tikkie/paymentrequests/qzdnzr8hnVWTgXXcFRLUMc/payments/21ef7413-cc3c-4c80-9272-6710fada28e4/refunds").to_return(status: 201, body: data)
+      stub_request(:post, "https://api.abnamro.com/v2/tikkie/paymentrequests/qzdnzr8hnVWTgXXcFRLUMc/payments/21ef7413-cc3c-4c80-9272-6710fada28e4/refunds")
+        .with(body: { description: "Refunded 10.00 for broken product.", amountInCents: 1000, referenceId: "Ref-12345" }.to_json)
+        .to_return(status: 201, body: data)
 
-      refund = client.create("qzdnzr8hnVWTgXXcFRLUMc", "21ef7413-cc3c-4c80-9272-6710fada28e4", amount: "10.00", description: "Refunded 10.00 for broken product.")
+      refund = client.create("qzdnzr8hnVWTgXXcFRLUMc", "21ef7413-cc3c-4c80-9272-6710fada28e4", amount: "10.00", description: "Refunded 10.00 for broken product.", reference_id: "Ref-12345")
       expect(refund).to be_a(Tikkie::Api::Resources::Refund)
       expect(refund.refund_token).to eq("abcdzr8hnVWTgXXcFRLUMc")
     end

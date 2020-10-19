@@ -131,9 +131,22 @@ RSpec.describe Tikkie::Api::Clients::PaymentRequests do
   describe '#create' do
     it 'creates a new payment request' do
       data = File.read("spec/fixtures/responses/payment_requests/create.json")
-      stub_request(:post, "https://api.abnamro.com/v2/tikkie/paymentrequests").to_return(status: 201, body: data)
+      stub_request(:post, "https://api.abnamro.com/v2/tikkie/paymentrequests")
+        .with(body: { description: "Test", amountInCents: 500, referenceId: "Ref-12345" }.to_json)
+        .to_return(status: 201, body: data)
 
-      payment_request = client.create(amount: "5.00", description: "Test")
+      payment_request = client.create(amount: "5.00", description: "Test", reference_id: "Ref-12345")
+      expect(payment_request).to be_a(Tikkie::Api::Resources::PaymentRequest)
+      expect(payment_request.payment_request_token).to eq("qzdnzr8hnVWTgXXcFRLUMc")
+    end
+
+    it 'creates a payment request with custom expiration date' do
+      data = File.read("spec/fixtures/responses/payment_requests/create.json")
+      stub_request(:post, "https://api.abnamro.com/v2/tikkie/paymentrequests")
+        .with(body: { description: "Test", amountInCents: 500, expiryDate: "2021-01-31" }.to_json)
+        .to_return(status: 201, body: data)
+
+      payment_request = client.create(amount: "5.00", description: "Test", expiry_date: Date.new(2021, 1, 31))
       expect(payment_request).to be_a(Tikkie::Api::Resources::PaymentRequest)
       expect(payment_request.payment_request_token).to eq("qzdnzr8hnVWTgXXcFRLUMc")
     end
