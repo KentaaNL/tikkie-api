@@ -283,6 +283,7 @@ See [Tikkie::Notifications](lib/tikkie/notifications/) for all types of notifica
 This gem supports [Tikkie API (v2)](https://developer.abnamro.com/api-products/tikkie) as of release 2.0.0.
 
 The deprecated [Tikkie Payment Request API (v1)](https://developer.abnamro.com/api-products/tikkie-payment-request) is currently namespaced under [Tikkie::Api::V1](lib/tikkie/api/v1/) to allow migration to Tikkie v2. This code is not supported anymore and will be removed in a future release of this gem.
+To use the Tikkie v1 code, make sure to include the [jwt gem](https://rubygems.org/gems/jwt) in your code.
 
 ## Development
 
