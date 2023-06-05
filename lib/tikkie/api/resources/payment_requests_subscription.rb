@@ -12,11 +12,11 @@ module Tikkie
         private
 
         def create_resource(attributes)
-          request.post("paymentrequestssubscription", options, attributes)
+          request.post('paymentrequestssubscription', options, attributes)
         end
 
         def delete_resource
-          request.delete("paymentrequestssubscription", options)
+          request.delete('paymentrequestssubscription', options)
         end
       end
     end

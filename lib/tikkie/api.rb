@@ -1,59 +1,59 @@
 # frozen_string_literal: true
 
-require "tikkie/api/version"
+require 'tikkie/api/version'
 
-require "tikkie/api/amount"
-require "tikkie/api/client"
-require "tikkie/api/configuration"
-require "tikkie/api/exception"
-require "tikkie/api/request"
-require "tikkie/api/response"
+require 'tikkie/api/amount'
+require 'tikkie/api/client'
+require 'tikkie/api/configuration'
+require 'tikkie/api/exception'
+require 'tikkie/api/request'
+require 'tikkie/api/response'
 
-require "tikkie/api/clients/base"
-require "tikkie/api/clients/payment_requests"
-require "tikkie/api/clients/payment_requests_subscription"
-require "tikkie/api/clients/payments"
-require "tikkie/api/clients/refunds"
-require "tikkie/api/clients/sandbox_apps"
+require 'tikkie/api/clients/base'
+require 'tikkie/api/clients/payment_requests'
+require 'tikkie/api/clients/payment_requests_subscription'
+require 'tikkie/api/clients/payments'
+require 'tikkie/api/clients/refunds'
+require 'tikkie/api/clients/sandbox_apps'
 
-require "tikkie/api/resources/base"
-require "tikkie/api/resources/error"
-require "tikkie/api/resources/list"
-require "tikkie/api/resources/payment_request"
-require "tikkie/api/resources/payment_requests"
-require "tikkie/api/resources/payment_requests_subscription"
-require "tikkie/api/resources/payment"
-require "tikkie/api/resources/payments"
-require "tikkie/api/resources/refund"
-require "tikkie/api/resources/sandbox_app"
+require 'tikkie/api/resources/base'
+require 'tikkie/api/resources/error'
+require 'tikkie/api/resources/list'
+require 'tikkie/api/resources/payment_request'
+require 'tikkie/api/resources/payment_requests'
+require 'tikkie/api/resources/payment_requests_subscription'
+require 'tikkie/api/resources/payment'
+require 'tikkie/api/resources/payments'
+require 'tikkie/api/resources/refund'
+require 'tikkie/api/resources/sandbox_app'
 
 # Below the deprecated Tikkie v1 API code which will be removed after 01-01-2021.
-require "tikkie/api/v1/access_token"
-require "tikkie/api/v1/authentication"
-require "tikkie/api/v1/client"
-require "tikkie/api/v1/configuration"
-require "tikkie/api/v1/exception"
-require "tikkie/api/v1/request"
+require 'tikkie/api/v1/access_token'
+require 'tikkie/api/v1/authentication'
+require 'tikkie/api/v1/client'
+require 'tikkie/api/v1/configuration'
+require 'tikkie/api/v1/exception'
+require 'tikkie/api/v1/request'
 
-require "tikkie/api/v1/requests/payment_requests"
-require "tikkie/api/v1/requests/platforms"
-require "tikkie/api/v1/requests/users"
+require 'tikkie/api/v1/requests/payment_requests'
+require 'tikkie/api/v1/requests/platforms'
+require 'tikkie/api/v1/requests/users'
 
-require "tikkie/api/v1/responses/base"
-require "tikkie/api/v1/responses/bank_account"
-require "tikkie/api/v1/responses/error"
-require "tikkie/api/v1/responses/pagination"
-require "tikkie/api/v1/responses/payment_request_created"
-require "tikkie/api/v1/responses/payment_request"
-require "tikkie/api/v1/responses/payment_requests"
-require "tikkie/api/v1/responses/payment"
-require "tikkie/api/v1/responses/platform"
-require "tikkie/api/v1/responses/platforms"
-require "tikkie/api/v1/responses/user"
-require "tikkie/api/v1/responses/users"
+require 'tikkie/api/v1/responses/base'
+require 'tikkie/api/v1/responses/bank_account'
+require 'tikkie/api/v1/responses/error'
+require 'tikkie/api/v1/responses/pagination'
+require 'tikkie/api/v1/responses/payment_request_created'
+require 'tikkie/api/v1/responses/payment_request'
+require 'tikkie/api/v1/responses/payment_requests'
+require 'tikkie/api/v1/responses/payment'
+require 'tikkie/api/v1/responses/platform'
+require 'tikkie/api/v1/responses/platforms'
+require 'tikkie/api/v1/responses/user'
+require 'tikkie/api/v1/responses/users'
 
-require "tikkie/api/v1/types/payment_request_status"
-require "tikkie/api/v1/types/payment_status"
-require "tikkie/api/v1/types/platform_status"
-require "tikkie/api/v1/types/platform_usage"
-require "tikkie/api/v1/types/user_status"
+require 'tikkie/api/v1/types/payment_request_status'
+require 'tikkie/api/v1/types/payment_status'
+require 'tikkie/api/v1/types/platform_status'
+require 'tikkie/api/v1/types/platform_usage'
+require 'tikkie/api/v1/types/user_status'

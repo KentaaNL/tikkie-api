@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require 'spec_helper'
 
 RSpec.describe Tikkie::Api::Client do
-  subject(:client) { described_class.new(api_key: "12345", app_token: "abcdef") }
+  subject(:client) { described_class.new(api_key: '12345', app_token: 'abcdef') }
 
   describe '#payment_requests_subscription' do
     it 'returns a payment requests subscription client' do

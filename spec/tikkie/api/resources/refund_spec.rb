@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require 'spec_helper'
 
 RSpec.describe Tikkie::Api::Resources::Refund do
   subject(:resource) { described_class.new(config, body: body) }
 
-  let(:config) { Tikkie::Api::Configuration.new(api_key: "12345", app_token: "abcdef") }
-  let(:body) { JSON.parse(File.read("spec/fixtures/responses/refunds/get.json"), symbolize_names: true) }
+  let(:config) { Tikkie::Api::Configuration.new(api_key: '12345', app_token: 'abcdef') }
+  let(:body) { JSON.parse(File.read('spec/fixtures/responses/refunds/get.json'), symbolize_names: true) }
 
   describe '#payment_request_token' do
     it 'returns the payment request token' do
@@ -22,25 +22,25 @@ RSpec.describe Tikkie::Api::Resources::Refund do
 
   describe '#refund_token' do
     it 'returns the refund token' do
-      expect(resource.refund_token).to eq("abcdzr8hnVWTgXXcFRLUMc")
+      expect(resource.refund_token).to eq('abcdzr8hnVWTgXXcFRLUMc')
     end
   end
 
   describe '#amount' do
     it 'returns the amount' do
-      expect(resource.amount).to eq(BigDecimal("10"))
+      expect(resource.amount).to eq(BigDecimal('10'))
     end
   end
 
   describe '#description' do
     it 'returns the description' do
-      expect(resource.description).to eq("Refunded 10.00 for broken product.")
+      expect(resource.description).to eq('Refunded 10.00 for broken product.')
     end
   end
 
   describe '#reference_id' do
     it 'returns the reference ID' do
-      expect(resource.reference_id).to eq("inv_1815_ref_1")
+      expect(resource.reference_id).to eq('inv_1815_ref_1')
     end
   end
 

@@ -4,7 +4,7 @@ module Tikkie
   module Notifications
     # Refund notification.
     class RefundNotification
-      NOTIFICATION_TYPE = "REFUND"
+      NOTIFICATION_TYPE = 'REFUND'
 
       attr_reader :body
 

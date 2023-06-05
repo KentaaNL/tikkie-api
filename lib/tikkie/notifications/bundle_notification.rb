@@ -4,7 +4,7 @@ module Tikkie
   module Notifications
     # Bundle notification.
     class BundleNotification
-      NOTIFICATION_TYPE = "BUNDLE"
+      NOTIFICATION_TYPE = 'BUNDLE'
 
       attr_reader :body
 

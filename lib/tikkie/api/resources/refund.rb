@@ -7,8 +7,8 @@ module Tikkie
     module Resources
       # Resource for a Refund.
       class Refund < Base
-        STATUS_PENDING = "PENDING"
-        STATUS_PAID = "PAID"
+        STATUS_PENDING = 'PENDING'
+        STATUS_PAID = 'PAID'
 
         attr_reader :payment_request_token, :payment_token
 

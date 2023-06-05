@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require 'spec_helper'
 
 RSpec.describe Tikkie::Notifications::RefundNotification do
   subject(:notification) { described_class.new(body) }
 
-  let(:body) { JSON.parse(File.read("spec/fixtures/notifications/refund.json"), symbolize_names: true) }
+  let(:body) { JSON.parse(File.read('spec/fixtures/notifications/refund.json'), symbolize_names: true) }
 
   describe '#subscription_id' do
     it 'returns the subscription ID' do

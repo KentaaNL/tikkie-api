@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require 'spec_helper'
 
 RSpec.describe Tikkie::Api::Resources::PaymentRequests do
   subject(:resource) { described_class.new(config, body: data) }
 
-  let(:config) { Tikkie::Api::Configuration.new(api_key: "12345", app_token: "abcdef") }
-  let(:data) { JSON.parse(File.read("spec/fixtures/responses/payment_requests/list.json"), symbolize_names: true) }
+  let(:config) { Tikkie::Api::Configuration.new(api_key: '12345', app_token: 'abcdef') }
+  let(:data) { JSON.parse(File.read('spec/fixtures/responses/payment_requests/list.json'), symbolize_names: true) }
 
   describe 'enumerable' do
     it 'returns the payment requests' do
@@ -14,7 +14,7 @@ RSpec.describe Tikkie::Api::Resources::PaymentRequests do
       expect(resource.first).to be_a(Tikkie::Api::Resources::PaymentRequest)
 
       payment_request = resource.first
-      expect(payment_request.payment_request_token).to eq("qzdnzr8hnVWTgXXcFRLUMc")
+      expect(payment_request.payment_request_token).to eq('qzdnzr8hnVWTgXXcFRLUMc')
     end
   end
 

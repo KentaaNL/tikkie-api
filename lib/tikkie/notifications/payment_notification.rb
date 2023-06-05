@@ -4,7 +4,7 @@ module Tikkie
   module Notifications
     # Payment notification.
     class PaymentNotification
-      NOTIFICATION_TYPE = "PAYMENT"
+      NOTIFICATION_TYPE = 'PAYMENT'
 
       attr_reader :body
 

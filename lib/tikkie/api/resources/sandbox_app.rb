@@ -12,7 +12,7 @@ module Tikkie
         private
 
         def create_resource(attributes)
-          request.post("sandboxapps", options, attributes)
+          request.post('sandboxapps', options, attributes)
         end
       end
     end

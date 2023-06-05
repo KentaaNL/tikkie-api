@@ -18,7 +18,7 @@ module Tikkie
           params[:fromDate] = options[:from_date].respond_to?(:utc) ? options[:from_date].utc.iso8601 : options[:from_date] if options.key?(:from_date)
           params[:toDate] = options[:to_date].respond_to?(:utc) ? options[:to_date].utc.iso8601 : options[:to_date] if options.key?(:to_date)
 
-          request.get("paymentrequests", params)
+          request.get('paymentrequests', params)
         end
 
         def payment_requests

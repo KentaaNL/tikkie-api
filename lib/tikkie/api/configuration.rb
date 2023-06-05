@@ -4,8 +4,8 @@ module Tikkie
   module Api
     # Tikkie API configuration.
     class Configuration
-      SANDBOX_API_URL = "https://api-sandbox.abnamro.com/v2/tikkie/"
-      PRODUCTION_API_URL = "https://api.abnamro.com/v2/tikkie/"
+      SANDBOX_API_URL = 'https://api-sandbox.abnamro.com/v2/tikkie/'
+      PRODUCTION_API_URL = 'https://api.abnamro.com/v2/tikkie/'
 
       attr_reader :api_key, :app_token, :sandbox
 

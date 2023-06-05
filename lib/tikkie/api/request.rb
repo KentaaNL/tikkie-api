@@ -46,14 +46,14 @@ module Tikkie
           raise Tikkie::Api::Exception, "Invalid HTTP method: #{http_method}"
         end
 
-        request["Accept"] = "application/json"
-        request["Content-Type"] = "application/json"
-        request["Api-Key"] = config.api_key
-        request["X-App-Token"] = config.app_token if config.app_token
-        request["User-Agent"] = "Ruby tikkie-api/#{Tikkie::Api::VERSION}"
+        request['Accept'] = 'application/json'
+        request['Content-Type'] = 'application/json'
+        request['Api-Key'] = config.api_key
+        request['X-App-Token'] = config.app_token if config.app_token
+        request['User-Agent'] = "Ruby tikkie-api/#{Tikkie::Api::VERSION}"
 
         client = Net::HTTP.new(uri.hostname, uri.port)
-        client.use_ssl = uri.scheme == "https"
+        client.use_ssl = uri.scheme == 'https'
         client.verify_mode = OpenSSL::SSL::VERIFY_PEER
 
         begin
@@ -67,7 +67,7 @@ module Tikkie
 
         logger.debug("[Tikkie] Response: #{response.http_code}, body: #{response.body}") if ENV['TIKKIE_DEBUG']
 
-        raise Tikkie::Api::Exception, "Invalid payload" if response.invalid?
+        raise Tikkie::Api::Exception, 'Invalid payload' if response.invalid?
         raise Tikkie::Api::RequestError, response if response.error?
 
         response

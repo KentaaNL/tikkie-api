@@ -47,6 +47,3 @@ RSpec/MultipleExpectations:
 
 Style/SafeNavigation:
   Enabled: false
-
-Style/StringLiterals:
-  Enabled: false

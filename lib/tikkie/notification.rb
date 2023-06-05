@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require "tikkie/notifications/bundle_notification"
-require "tikkie/notifications/payment_notification"
-require "tikkie/notifications/refund_notification"
+require 'tikkie/notifications/bundle_notification'
+require 'tikkie/notifications/payment_notification'
+require 'tikkie/notifications/refund_notification'
 
 module Tikkie
   # Parses the payload for a Notification.
