@@ -3,7 +3,7 @@
 require "spec_helper"
 
 RSpec.describe Tikkie::Api::Clients::PaymentRequestsSubscription do
-  subject(:client) { Tikkie::Api::Clients::PaymentRequestsSubscription.new(config) }
+  subject(:client) { described_class.new(config) }
 
   let(:config) { Tikkie::Api::Configuration.new(api_key: "12345", app_token: "abcdef") }
 

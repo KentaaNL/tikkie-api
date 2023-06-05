@@ -3,7 +3,7 @@
 require "spec_helper"
 
 RSpec.describe Tikkie::Api::Configuration do
-  subject(:config) { Tikkie::Api::Configuration.new(api_key: "12345", app_token: "abcdef") }
+  subject(:config) { described_class.new(api_key: "12345", app_token: "abcdef") }
 
   describe '#api_key' do
     it 'returns the API key' do
@@ -24,7 +24,7 @@ RSpec.describe Tikkie::Api::Configuration do
   end
 
   context 'when sandboxed' do
-    subject(:config) { Tikkie::Api::Configuration.new(api_key: "12345", app_token: "abcdef", sandbox: true) }
+    subject(:config) { described_class.new(api_key: "12345", app_token: "abcdef", sandbox: true) }
 
     describe '#api_url' do
       it 'returns the sandbox API url' do

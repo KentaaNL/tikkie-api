@@ -3,7 +3,7 @@
 require "spec_helper"
 
 RSpec.describe Tikkie::Notifications::RefundNotification do
-  subject(:notification) { Tikkie::Notifications::RefundNotification.new(body) }
+  subject(:notification) { described_class.new(body) }
 
   let(:body) { JSON.parse(File.read("spec/fixtures/notifications/refund.json"), symbolize_names: true) }
 

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 RSpec.describe Tikkie::Api::Resources::PaymentRequests do
-  subject(:resource) { Tikkie::Api::Resources::PaymentRequests.new(config, body: data) }
+  subject(:resource) { described_class.new(config, body: data) }
 
   let(:config) { Tikkie::Api::Configuration.new(api_key: "12345", app_token: "abcdef") }
   let(:data) { JSON.parse(File.read("spec/fixtures/responses/payment_requests/list.json"), symbolize_names: true) }
@@ -39,7 +39,7 @@ RSpec.describe Tikkie::Api::Resources::PaymentRequests do
   describe '#next' do
     it 'returns an instance with the next page set' do
       next_page = resource.next
-      expect(next_page).to be_a(Tikkie::Api::Resources::PaymentRequests)
+      expect(next_page).to be_a(described_class)
       expect(next_page.page_number).to eq(1)
     end
   end

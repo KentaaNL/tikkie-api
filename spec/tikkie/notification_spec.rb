@@ -8,7 +8,7 @@ RSpec.describe Tikkie::Notification do
 
     describe '.parse' do
       it 'returns a bundle notification' do
-        notification = Tikkie::Notification.parse(body)
+        notification = described_class.parse(body)
         expect(notification).to be_a(Tikkie::Notifications::BundleNotification)
       end
     end
@@ -19,7 +19,7 @@ RSpec.describe Tikkie::Notification do
 
     describe '.parse' do
       it 'returns a payment notification' do
-        notification = Tikkie::Notification.parse(body)
+        notification = described_class.parse(body)
         expect(notification).to be_a(Tikkie::Notifications::PaymentNotification)
       end
     end
@@ -30,7 +30,7 @@ RSpec.describe Tikkie::Notification do
 
     describe '.parse' do
       it 'returns a refund notification' do
-        notification = Tikkie::Notification.parse(body)
+        notification = described_class.parse(body)
         expect(notification).to be_a(Tikkie::Notifications::RefundNotification)
       end
     end
@@ -41,7 +41,7 @@ RSpec.describe Tikkie::Notification do
 
     describe '.parse' do
       it 'ignores the notification and returns nil' do
-        notification = Tikkie::Notification.parse(body)
+        notification = described_class.parse(body)
         expect(notification).to be nil
       end
     end
@@ -52,7 +52,7 @@ RSpec.describe Tikkie::Notification do
 
     describe '.parse' do
       it 'ignores the notification and returns nil' do
-        notification = Tikkie::Notification.parse(body)
+        notification = described_class.parse(body)
         expect(notification).to be nil
       end
     end
@@ -63,7 +63,7 @@ RSpec.describe Tikkie::Notification do
 
     describe '.parse' do
       it 'ignores the notification and returns nil' do
-        notification = Tikkie::Notification.parse(body)
+        notification = described_class.parse(body)
         expect(notification).to be nil
       end
     end

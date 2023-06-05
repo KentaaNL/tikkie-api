@@ -1,8 +1,10 @@
 require:
   - rubocop-performance
+  - rubocop-rake
   - rubocop-rspec
 
 AllCops:
+  NewCops: enable
   TargetRubyVersion: 2.4
   DisplayCopNames: true
   DisplayStyleGuide: true
@@ -17,7 +19,7 @@ Layout/LineLength:
 
 
 Metrics/AbcSize:
-  Max: 43
+  Max: 50
 
 Metrics/BlockLength:
   Exclude:
@@ -30,11 +32,11 @@ Metrics/MethodLength:
   Enabled: false
 
 Metrics/PerceivedComplexity:
-  Max: 9
+  Max: 10
 
 
-RSpec/DescribedClass:
-  EnforcedStyle: explicit
+RSpec/FactoryBot:
+  Enabled: false
 
 RSpec/ExampleLength:
   Max: 12
@@ -43,18 +45,8 @@ RSpec/MultipleExpectations:
   Max: 8
 
 
-Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-
-Style/FormatStringToken:
-  Enabled: false
-
 Style/SafeNavigation:
   Enabled: false
 
 Style/StringLiterals:
-  Enabled: false
-
-Style/SymbolArray:
   Enabled: false

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 RSpec.describe Tikkie::Notifications::BundleNotification do
-  subject(:notification) { Tikkie::Notifications::BundleNotification.new(body) }
+  subject(:notification) { described_class.new(body) }
 
   let(:body) { JSON.parse(File.read("spec/fixtures/notifications/bundle.json"), symbolize_names: true) }
 

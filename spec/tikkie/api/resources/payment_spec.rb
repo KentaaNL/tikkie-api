@@ -3,7 +3,7 @@
 require "spec_helper"
 
 RSpec.describe Tikkie::Api::Resources::Payment do
-  subject(:resource) { Tikkie::Api::Resources::Payment.new(config, body: body) }
+  subject(:resource) { described_class.new(config, body: body) }
 
   let(:config) { Tikkie::Api::Configuration.new(api_key: "12345", app_token: "abcdef") }
   let(:body) { JSON.parse(File.read("spec/fixtures/responses/payments/get.json"), symbolize_names: true) }
