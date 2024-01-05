@@ -25,7 +25,7 @@ RSpec.describe Tikkie::Api::Clients::PaymentRequestsSubscription do
       stub_request(:delete, 'https://api.abnamro.com/v2/tikkie/paymentrequestssubscription').to_return(status: 204)
 
       payment_requests_subscription = client.delete
-      expect(payment_requests_subscription).to be nil
+      expect(payment_requests_subscription).to be_nil
     end
   end
 end

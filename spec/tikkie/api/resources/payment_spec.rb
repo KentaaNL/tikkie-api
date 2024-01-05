@@ -10,7 +10,7 @@ RSpec.describe Tikkie::Api::Resources::Payment do
 
   describe '#payment_request_token' do
     it 'returns the payment request token' do
-      expect(resource.payment_request_token).to be nil
+      expect(resource.payment_request_token).to be_nil
     end
   end
 

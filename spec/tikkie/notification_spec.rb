@@ -42,7 +42,7 @@ RSpec.describe Tikkie::Notification do
     describe '.parse' do
       it 'ignores the notification and returns nil' do
         notification = described_class.parse(body)
-        expect(notification).to be nil
+        expect(notification).to be_nil
       end
     end
   end
@@ -53,7 +53,7 @@ RSpec.describe Tikkie::Notification do
     describe '.parse' do
       it 'ignores the notification and returns nil' do
         notification = described_class.parse(body)
-        expect(notification).to be nil
+        expect(notification).to be_nil
       end
     end
   end
@@ -64,7 +64,7 @@ RSpec.describe Tikkie::Notification do
     describe '.parse' do
       it 'ignores the notification and returns nil' do
         notification = described_class.parse(body)
-        expect(notification).to be nil
+        expect(notification).to be_nil
       end
     end
   end

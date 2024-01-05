@@ -47,7 +47,7 @@ RSpec.describe Tikkie::Api::Resources::PaymentRequests do
   describe '#previous' do
     it 'returns nil when no previous page exists' do
       previous_page = resource.previous
-      expect(previous_page).to be nil
+      expect(previous_page).to be_nil
     end
   end
 end
