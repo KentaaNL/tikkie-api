@@ -90,6 +90,3 @@ DEPENDENCIES
   tikkie-api!
   timecop (~> 0.9)
   webmock (~> 3.18)
-
-BUNDLED WITH
-   2.1.4
