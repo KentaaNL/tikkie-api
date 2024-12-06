@@ -12,7 +12,7 @@ module Tikkie
         def initialize(config, options = {})
           @page_number = options.fetch(:page_number, 0)
           @page_size = options.fetch(:page_size, 50)
-          super(config, options)
+          super
         end
 
         def total_elements

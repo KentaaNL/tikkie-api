@@ -16,7 +16,7 @@ module Tikkie
           @payment_request_token = options.delete(:payment_request_token)
           @payment_token = options.delete(:payment_token)
           @refund_token = options.delete(:refund_token)
-          super(config, options)
+          super
         end
 
         def refund_token

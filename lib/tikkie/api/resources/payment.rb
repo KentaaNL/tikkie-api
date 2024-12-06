@@ -12,7 +12,7 @@ module Tikkie
         def initialize(config, options = {})
           @payment_request_token = options.delete(:payment_request_token)
           @payment_token = options.delete(:payment_token)
-          super(config, options)
+          super
         end
 
         def payment_token
