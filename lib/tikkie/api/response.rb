@@ -7,6 +7,8 @@ module Tikkie
   module Api
     # Parses and wraps the response from the Tikkie API.
     class Response
+      SUCCESS_CODES = [200, 201, 204].freeze
+
       attr_reader :response, :body
 
       def initialize(response)
@@ -15,7 +17,7 @@ module Tikkie
       end
 
       def success?
-        http_code == 200 || http_code == 201 || http_code == 204
+        SUCCESS_CODES.include?(http_code)
       end
 
       def error?
