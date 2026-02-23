@@ -22,7 +22,7 @@ RSpec.describe Tikkie::Api::Resources::PaymentRequest do
 
   describe '#amount' do
     it 'returns the amount' do
-      expect(resource.amount).to eq(BigDecimal('15'))
+      expect(resource.amount).to eq(BigDecimal(15))
     end
   end
 
@@ -82,7 +82,7 @@ RSpec.describe Tikkie::Api::Resources::PaymentRequest do
 
   describe '#total_amount_paid' do
     it 'returns the total amount paid' do
-      expect(resource.total_amount_paid).to eq(BigDecimal('30'))
+      expect(resource.total_amount_paid).to eq(BigDecimal(30))
     end
   end
 end

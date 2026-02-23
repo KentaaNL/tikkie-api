@@ -15,7 +15,7 @@ RSpec.describe Tikkie::Api::Amount do
     end
 
     it 'converts cents as BigDecimal to an amount' do
-      amount = described_class.from_cents(BigDecimal('1234'))
+      amount = described_class.from_cents(BigDecimal(1234))
       expect(amount.to_s).to eq('12.34')
     end
   end
@@ -40,11 +40,11 @@ RSpec.describe Tikkie::Api::Amount do
 
   describe '#to_d' do
     it 'returns the decimal value of an Integer' do
-      expect(described_class.new(42).to_d).to eq(BigDecimal('42'))
+      expect(described_class.new(42).to_d).to eq(BigDecimal(42))
     end
 
     it 'returns the decimal value of a String' do
-      expect(described_class.new('42').to_d).to eq(BigDecimal('42'))
+      expect(described_class.new('42').to_d).to eq(BigDecimal(42))
     end
 
     it 'returns the decimal value of a String with decimals' do

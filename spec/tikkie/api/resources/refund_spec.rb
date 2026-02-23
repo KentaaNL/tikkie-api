@@ -28,7 +28,7 @@ RSpec.describe Tikkie::Api::Resources::Refund do
 
   describe '#amount' do
     it 'returns the amount' do
-      expect(resource.amount).to eq(BigDecimal('10'))
+      expect(resource.amount).to eq(BigDecimal(10))
     end
   end
 

@@ -7,8 +7,8 @@ module Tikkie
       class PaymentRequests < List
         include Enumerable
 
-        def each(&block)
-          payment_requests.each(&block)
+        def each(&)
+          payment_requests.each(&)
         end
 
         private

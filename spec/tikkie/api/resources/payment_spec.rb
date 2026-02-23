@@ -40,7 +40,7 @@ RSpec.describe Tikkie::Api::Resources::Payment do
 
   describe '#amount' do
     it 'returns the amount' do
-      expect(resource.amount).to eq(BigDecimal('15'))
+      expect(resource.amount).to eq(BigDecimal(15))
     end
   end
 

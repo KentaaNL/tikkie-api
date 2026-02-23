@@ -14,8 +14,8 @@ module Tikkie
           super
         end
 
-        def each(&block)
-          payments.each(&block)
+        def each(&)
+          payments.each(&)
         end
 
         private
