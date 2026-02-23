@@ -5,8 +5,8 @@ require_relative 'lib/tikkie/api/version'
 Gem::Specification.new do |spec|
   spec.name          = 'tikkie-api'
   spec.version       = Tikkie::Api::VERSION
-  spec.authors       = ['Kentaa BV']
-  spec.email         = ['support@kentaa.nl']
+  spec.authors       = %w[Kentaa iRaiser]
+  spec.email         = ['tech-arnhem@iraiser.eu']
 
   spec.summary       = 'Ruby library for communicating with the Tikkie API'
   spec.homepage      = 'https://github.com/KentaaNL/tikkie-api'
