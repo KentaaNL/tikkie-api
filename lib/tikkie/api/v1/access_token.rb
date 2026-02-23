@@ -13,7 +13,7 @@ module Tikkie
         end
 
         def expired?
-          Time.now > @expires_at
+          Time.now >= @expires_at
         end
       end
     end
