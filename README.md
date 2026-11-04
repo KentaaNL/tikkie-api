@@ -2,7 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/tikkie-api.svg)](https://badge.fury.io/rb/tikkie-api)
 [![Build Status](https://github.com/KentaaNL/tikkie-api/actions/workflows/test.yml/badge.svg)](https://github.com/KentaaNL/tikkie-api/actions)
-[![Code Climate](https://codeclimate.com/github/KentaaNL/tikkie-api/badges/gpa.svg)](https://codeclimate.com/github/KentaaNL/tikkie-api)
+[![CodeQL](https://github.com/KentaaNL/tikkie-api/actions/workflows/github-code-quality/codeql/badge.svg)](https://github.com/KentaaNL/tikkie-api/actions/workflows/github-code-quality/codeql)
 
 Unofficial Ruby library for communicating with the [Tikkie API](https://developer.abnamro.com/api-products/tikkie).
 
